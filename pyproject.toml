@@ -1,12 +1,12 @@
 [project]
 name = "yutilx"
-
 version = "0.0.2"
 readme = "README.md"
-
 description = "Xinyu's common utilities"
-
-requires-python = ">=3.7"
+requires-python = ">=3.9"
+dependencies = [
+    "tqdm>=4.60.0",
+]
 
 authors = [
   {name = "Xinyu Yang", email = "cauyxy@gmail.com" }
@@ -20,5 +20,31 @@ maintainers = [
 "Source" = "https://github.com/cauyxy/yutilx/"
 
 [build-system]
-requires = ["setuptools>=43.0.0", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "ruff>=0.8.0",
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "UP", # pyupgrade
+]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
